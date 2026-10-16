@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huntersfiles — Retro Web Hub</title>
+<style>
+  :root { --green:#65ff8f; --dim:#2b9c51; --bg:#061009; --panel:#0b1a10; --line:#27683a; --amber:#ffd166; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--green); font-family:"Courier New",monospace; min-height:100vh; }
+  body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:5; opacity:.14;
+    background:repeating-linear-gradient(transparent 0 3px, #000 4px 5px); }
+  button,input { font:inherit; }
+  button { background:#102819; color:var(--green); border:1px solid var(--green); padding:9px 12px; cursor:pointer; }
+  button:hover, button:focus { background:var(--green); color:#031007; outline:none; }
+  input { background:#020804; color:var(--green); border:1px solid var(--line); padding:10px; min-width:0; }
+  a { color:var(--amber); }
+  .wrap { max-width:1150px; margin:auto; padding:18px; }
+  header { border:2px solid var(--green); padding:18px; box-shadow:0 0 18px #1d7138; background:#07140b; }
+  .topline { display:flex; gap:14px; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+  .logo { font-size:clamp(24px,4vw,42px); font-weight:bold; text-shadow:0 0 10px var(--green); letter-spacing:2px; }
+  .subtitle { color:#b5ffc7; margin-top:8px; }
+  .status { color:var(--amber); font-size:13px; }
+  nav { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0; }
+  nav button.active { background:var(--green); color:#031007; }
+  .screen { border:1px solid var(--line); background:var(--panel); padding:18px; min-height:360px; }
+  .view { display:none; } .view.active { display:block; }
+  h2 { margin-top:0; border-bottom:1px dashed var(--dim); padding-bottom:10px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+  .card { border:1px solid var(--line); padding:14px; background:#06120a; }
+  .card h3 { margin-top:0; color:var(--amber); }
+  .card p { color:#c0e8c9; line-height:1.5; }
+  .row { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+  .row input { flex:1; }
+  .small { color:#9cc9a8; font-size:12px; line-height:1.5; }
+  .browser-frame { width:100%; height:420px; background:#020604; border:1px solid var(--line); }
+  .terminal { background:#020604; border:1px solid var(--line); padding:12px; min-height:100px; white-space:pre-wrap; line-height:1.5; }
+  .movie-art { font-size:36px; }
+  .pill { display:inline-block; border:1px solid var(--dim); padding:3px 7px; color:var(--amber); font-size:12px; }
+  footer { padding:16px 2px; color:#77a985; font-size:12px; }
+  @media(max-width:600px) { .wrap{padding:10px} .screen{padding:12px} .browser-frame{height:340px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="topline">
+      <div>
+        <div class="logo">▣ HUNTERSFILES</div>
+        <div class="subtitle">GAMES // MOVIES // WEB TERMINAL</div>
+      </div>
+      <div class="status" id="clock">SYSTEM READY</div>
+    </div>
+  </header>
+
+  <nav aria-label="Main menu">
+    <button class="active" data-view="home">[ HOME ]</button>
+    <button data-view="games">[ GAMES ]</button>
+    <button data-view="movies">[ MOVIES ]</button>
+    <button data-view="browser">[ WEB BROWSER ]</button>
+    <button data-view="blocker">[ AD CONTROL ]</button>
+  </nav>
+
+  <main class="screen">
+    <section class="view active" id="home">
+      <h2>&gt; WELCOME, OPERATOR_</h2>
+      <p>Welcome to your retro computer hub. Choose a module below.</p>
+      <div class="grid">
+        <article class="card"><h3>01 / GAMING</h3><p>Discover browser games and classic gaming resources.</p><button data-jump="games">OPEN GAMES</button></article>
+        <article class="card"><h3>02 / MOVIE DATABASE</h3><p>Find movie information, trailers, and official viewing options.</p><button data-jump="movies">OPEN MOVIES</button></article>
+        <article class="card"><h3>03 / WEB TERMINAL</h3><p>Try loading a website inside this page when it allows embedding.</p><button data-jump="browser">OPEN BROWSER</button></article>
+        <article class="card"><h3>04 / AD CONTROL</h3><p>Manage the demo ad-control switch and learn what it can do.</p><button data-jump="blocker">OPEN AD CONTROL</button></article>
+      </div>
+      <p class="small">TIP: Some websites refuse to open inside another website. If that happens, use the “Open in new tab” button.</p>
+    </section>
+
+    <section class="view" id="games">
+      <h2>&gt; GAME DIRECTORY</h2>
+      <div class="grid">
+        <article class="card"><h3>Browser games</h3><p>Find simple games you can play online.</p><a href="https://itch.io/games/html5" target="_blank" rel="noopener noreferrer">OPEN HTML5 GAMES ↗</a></article>
+        <article class="card"><h3>Classic games</h3><p>Explore retro-inspired and independent games.</p><a href="https://www.puzzlescript.net/" target="_blank" rel="noopener noreferrer">OPEN PUZZLESCRIPT ↗</a></article>
+        <article class="card"><h3>Game search</h3><p>Search the web for a game title or walkthrough.</p><form class="search-form" data-engine="https://www.google.com/search?q="><div class="row"><input aria-label="Game search" placeholder="Enter game title"><button>SEARCH</button></div></form></article>
+      </div>
+    </section>
+
+    <section class="view" id="games">
+      <h2>&gt; GAME DIRECTORY — HYPACKEL LINKS</h2>
+      <p class="small">A retro-styled directory of game links. These launch the original game pages or the Hypackel game library; the games are not copied into this file.</p>
+      <div class="row">
+        <input id="gameSearch" type="search" placeholder="SEARCH GAME TITLES..." aria-label="Search games">
+        <button type="button" id="clearGameSearch">CLEAR</button>
+        <a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer"><button type="button">FULL HYPACKEL LIST ↗</button></a>
+      </div>
+      <div class="grid" id="gameGrid">
+        <article class="card game-card" data-name="2048 puzzle"><span class="pill">PUZZLE</span><h3>2048</h3><p>Slide tiles and combine matching numbers.</p><a href="https://play2048.co/" target="_blank" rel="noopener noreferrer">PLAY ↗</a></article>
+        <article class="card game-card" data-name="cookie clicker idle"><span class="pill">IDLE</span><h3>Cookie Clicker</h3><p>Build up your cookie production.</p><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener noreferrer">PLAY ↗</a></article>
+        <article class="card game-card" data-name="chrome dino runner"><span class="pill">ARCADE</span><h3>Chrome Dino</h3><p>A simple endless-running game.</p><a href="https://chromedino.com/" target="_blank" rel="noopener noreferrer">PLAY ↗</a></article>
+        <article class="card game-card" data-name="slope racing reflex"><span class="pill">ARCADE</span><h3>Slope</h3><p>Find a playable version from a game directory.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="doodle jump arcade"><span class="pill">ARCADE</span><h3>Doodle Jump</h3><p>Jump upward through a classic-style platform challenge.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="drive mad racing"><span class="pill">RACING</span><h3>Drive Mad</h3><p>Try a physics-based driving game.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="duck life adventure racing"><span class="pill">ADVENTURE</span><h3>Duck Life</h3><p>Train a duck and enter races.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="fireboy watergirl puzzle platformer"><span class="pill">PUZZLE</span><h3>Fireboy and Watergirl</h3><p>Work through cooperative platform puzzles.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="geometry dash rhythm"><span class="pill">RHYTHM</span><h3>Geometry Dash</h3><p>Jump to the beat in a rhythm platformer.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="idle breakout brick breaker"><span class="pill">IDLE</span><h3>Idle Breakout</h3><p>Break blocks and upgrade your progress.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="minesweeper logic puzzle"><span class="pill">PUZZLE</span><h3>Minesweeper</h3><p>Use logic to clear the board.</p><a href="https://minesweeper.online/" target="_blank" rel="noopener noreferrer">PLAY ↗</a></article>
+        <article class="card game-card" data-name="papery planes arcade"><span class="pill">ARCADE</span><h3>Papery Planes</h3><p>Browse the original directory for this title.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="retro bowl sports football"><span class="pill">SPORTS</span><h3>Retro Bowl</h3><p>Retro-style football management and gameplay.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="slope ball arcade"><span class="pill">ARCADE</span><h3>Slope Ball</h3><p>Check the game directory for available versions.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="subway surfers runner"><span class="pill">RUNNER</span><h3>Subway Surfers</h3><p>Find the title through the original game directory.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+        <article class="card game-card" data-name="vex platformer"><span class="pill">PLATFORMER</span><h3>Vex</h3><p>Explore a stick-figure platforming challenge.</p><a href="https://hypackel.github.io/projects.html" target="_blank" rel="noopener noreferrer">FIND GAME ↗</a></article>
+      </div>
+      <p id="noGames" class="small" hidden>No matching games. Try another search.</p>
+      <p class="small">For the complete collection, use the “FULL HYPACKEL LIST” button. Availability and embedding depend on the original game host.</p>
+    </section>
+
+    <section class="view" id="movies">
+      <h2>&gt; MOVIE DATABASE</h2>
+      <div class="grid">
+        <article class="card"><div class="movie-art">▰ 🎬</div><h3>Movie search</h3><p>Search for movie summaries, cast information, and reviews.</p><form class="search-form" data-engine="https://www.google.com/search?q="><div class="row"><input aria-label="Movie search" placeholder="Enter movie title"><button>SEARCH</button></div></form></article>
+        <article class="card"><div class="movie-art">▶</div><h3>Trailers</h3><p>Look up official trailers and clips.</p><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">OPEN YOUTUBE ↗</a></article>
+        <article class="card"><div class="movie-art">▤</div><h3>Movie information</h3><p>Browse film details and discover where titles may be available.</p><a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">OPEN THE MOVIE DATABASE ↗</a></article>
+      </div>
+      <p class="small">This directory links to other services; it does not host or stream copyrighted movies.</p>
+    </section>
+
+    <section class="view" id="browser">
+      <h2>&gt; MINI WEB TERMINAL</h2>
+      <form id="browser-form">
+        <div class="row">
+          <input id="address" aria-label="Website address" placeholder="https://example.com" value="https://example.com">
+          <button type="submit">LOAD</button>
+          <button type="button" id="back">BACK</button>
+          <button type="button" id="forward">FORWARD</button>
+          <button type="button" id="reload">RELOAD</button>
+        </div>
+      </form>
+      <div class="row">
+        <button type="button" id="newtab">OPEN IN NEW TAB ↗</button>
+        <button type="button" id="browserhome">HOME</button>
+      </div>
+      <iframe class="browser-frame" id="webframe" title="Embedded website" src="https://example.com" referrerpolicy="no-referrer"></iframe>
+      <p class="small">If a site shows a blank area or an error, it probably blocks embedding for security. This HTML page cannot bypass that restriction. Use “Open in new tab” instead.</p>
+    </section>
+
+    <section class="view" id="blocker">
+      <h2>&gt; AD CONTROL PANEL</h2>
+      <div class="card">
+        <h3>FILTER STATUS: <span id="filter-status" class="pill">DEMO MODE</span></h3>
+        <p>This switch demonstrates the interface only. A standalone HTML page cannot block ads across other websites or browser tabs.</p>
+        <div class="row"><button id="filter-toggle">TURN DEMO FILTER ON</button><button id="clear-log">CLEAR LOG</button></div>
+        <div class="terminal" id="log">[BOOT] Huntersfiles initialized.
+[INFO] Cross-site ad blocking requires browser-level permissions or an extension.
+[READY] Demo control panel online.</div>
+      </div>
+      <p class="small">For real ad blocking across sites, use a reputable content-blocking browser extension or a browser with built-in blocking. This demo does not inspect, intercept, or remove third-party ads.</p>
+    </section>
+  </main>
+  <footer>HUNTERSFILES v1.0 // LOCAL HTML BUILD // <span id="year"></span></footer>
+</div>
+<script>
+  const views = [...document.querySelectorAll('.view')];
+  const navButtons = [...document.querySelectorAll('nav button[data-view]')];
+  function showView(name) {
+    views.forEach(v => v.classList.toggle('active', v.id === name));
+    navButtons.forEach(b => b.classList.toggle('active', b.dataset.view === name));
+  }
+  navButtons.forEach(b => b.addEventListener('click', () => showView(b.dataset.view)));
+  document.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => showView(b.dataset.jump)));
+
+  const gameSearch = document.getElementById('gameSearch');
+  if (gameSearch) {
+    const gameCards = [...document.querySelectorAll('.game-card')];
+    const filterGames = () => {
+      const query = gameSearch.value.trim().toLowerCase();
+      let shown = 0;
+      gameCards.forEach(card => {
+        const matches = card.dataset.name.includes(query) || card.textContent.toLowerCase().includes(query);
+        card.hidden = !matches;
+        if (matches) shown++;
+      });
+      document.getElementById('noGames').hidden = shown !== 0;
+    };
+    gameSearch.addEventListener('input', filterGames);
+    document.getElementById('clearGameSearch').addEventListener('click', () => {
+      gameSearch.value = ''; filterGames(); gameSearch.focus();
+    });
+  }
+
+  function searchURL(input, base) {
+    const q = input.trim();
+    if (!q) return null;
+    return base + encodeURIComponent(q);
+  }
+  document.querySelectorAll('.search-form').forEach(form => form.addEventListener('submit', e => {
+    e.preventDefault();
+    const input = form.querySelector('input');
+    const url = searchURL(input.value, form.dataset.engine);
+    if (url) window.open(url, '_blank', 'noopener,noreferrer');
+  }));
+
+  const address = document.getElementById('address');
+  const frame = document.getElementById('webframe');
+  let historyList = ['https://example.com'], historyIndex = 0;
+  function normalizeAddress(raw) {
+    let value = raw.trim();
+    if (!value) return null;
+    if (!/^https?:\/\//i.test(value)) {
+      if (value.includes(' ') || !value.includes('.')) return 'https://www.google.com/search?q=' + encodeURIComponent(value);
+      value = 'https://' + value;
+    }
+    try { const u = new URL(value); return ['http:', 'https:'].includes(u.protocol) ? u.href : null; }
+    catch { return null; }
+  }
+  function loadAddress(raw, addHistory=true) {
+    const url = normalizeAddress(raw);
+    if (!url) { alert('Enter a valid http:// or https:// website address.'); return; }
+    address.value = url;
+    frame.src = url;
+    if (addHistory) {
+      historyList = historyList.slice(0, historyIndex + 1);
+      historyList.push(url); historyIndex = historyList.length - 1;
+    }
+  }
+  document.getElementById('browser-form').addEventListener('submit', e => { e.preventDefault(); loadAddress(address.value); });
+  document.getElementById('back').addEventListener('click', () => { if (historyIndex > 0) { historyIndex--; loadAddress(historyList[historyIndex], false); } });
+  document.getElementById('forward').addEventListener('click', () => { if (historyIndex < historyList.length - 1) { historyIndex++; loadAddress(historyList[historyIndex], false); } });
+  document.getElementById('reload').addEventListener('click', () => { try { frame.contentWindow.location.reload(); } catch { frame.src = frame.src; } });
+  document.getElementById('newtab').addEventListener('click', () => {
+    const url = normalizeAddress(address.value);
+    if (url) window.open(url, '_blank', 'noopener,noreferrer');
+  });
+  document.getElementById('browserhome').addEventListener('click', () => loadAddress('https://example.com'));
+
+  let filterOn = false;
+  const filterButton = document.getElementById('filter-toggle');
+  const filterStatus = document.getElementById('filter-status');
+  const log = document.getElementById('log');
+  function addLog(message) { log.textContent += '\n' + message; }
+  filterButton.addEventListener('click', () => {
+    filterOn = !filterOn;
+    filterStatus.textContent = filterOn ? 'DEMO ON' : 'DEMO OFF';
+    filterButton.textContent = filterOn ? 'TURN DEMO FILTER OFF' : 'TURN DEMO FILTER ON';
+    addLog(filterOn ? '[DEMO] Filter switch enabled; no real ads are being blocked.' : '[DEMO] Filter switch disabled.');
+  });
+  document.getElementById('clear-log').addEventListener('click', () => { log.textContent = '[READY] Log cleared.'; });
+
+  function updateClock() {
+    document.getElementById('clock').textContent = new Date().toLocaleString('en-US', { weekday:'short', hour:'2-digit', minute:'2-digit', second:'2-digit' }) + ' // ONLINE';
+  }
+  updateClock(); setInterval(updateClock, 1000);
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
